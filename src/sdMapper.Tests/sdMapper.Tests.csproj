@@ -5,11 +5,11 @@
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProductVersion>8.0.30703</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
-    <ProjectGuid>{3979E659-7F15-4671-AFC2-70D39FD68364}</ProjectGuid>
+    <ProjectGuid>{F80C6FF5-F813-4DAB-BFB8-259F1F3F69F1}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>sdMapper</RootNamespace>
-    <AssemblyName>sdMapper</AssemblyName>
+    <RootNamespace>sdMapper.Tests</RootNamespace>
+    <AssemblyName>sdMapper.Tests</AssemblyName>
     <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <TargetFrameworkProfile />
