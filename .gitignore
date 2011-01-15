@@ -1,0 +1,10 @@
+obj
+bin
+prepare
+prepare/*
+packages
+packages/*
+*.csproj.user
+*.suo
+*.cache
+~$*
