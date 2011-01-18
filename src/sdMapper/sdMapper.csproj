@@ -41,7 +41,17 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Data\IMappingBuilder.cs" />
+    <Compile Include="Data\Mapping.cs" />
+    <Compile Include="Data\Extensions\ExpressionExtensions.cs" />
+    <Compile Include="Data\IMap.cs" />
+    <Compile Include="Data\Map.cs" />
+    <Compile Include="Data\MapExtensions.cs" />
+    <Compile Include="ThinItem.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Utilities\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

@@ -4,7 +4,6 @@ using System.Linq;
 using System.Text;
 using Xunit;
 
-
 namespace sdMapper.Tests
 {
     public class Usage
