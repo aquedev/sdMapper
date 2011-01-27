@@ -5,6 +5,7 @@ using System.Text;
 using Xunit;
 using sdMapper.Data;
 using sdMapper.Data.Extensions;
+using System.Linq.Expressions;
 
 namespace sdMapper.Tests.Data
 {
@@ -15,6 +16,7 @@ namespace sdMapper.Tests.Data
             public NewsArticleMockMap()
             {
                 MapProperty(article => article.Title);
+                //MapProperty(article => article.Body).To("Text");
             }
 
             public override string TemplatePath
@@ -26,21 +28,21 @@ namespace sdMapper.Tests.Data
             }
         }
 
-        public class NewsArticleMock
-        {
-            public string Title { get; set; }
-            public DateTime Date { get; set; }
-            public string SubTitle { get; set; }
-            public string Body { get; set; }
-            public string Author { get; set; }
-        }
+        
 
         [Fact]
-        public void Can_map_property_to_field_with_same_name()
+        public void MapProperty_WithoutSpecifiedFieldName_MapsThePropertyToAFieldWithSameName()
         {
             var map = new NewsArticleMockMap();
 
             map.MappingFor(art => art.Title).MapsTo("Title");
         }
+
+        //[Fact]
+        //public void MapProperty_WithPropertyAndSpecifiedFieldName_MapsThePropertyToThatField()
+        //{
+        //    var map = new NewsArticleMockMap();
+        //    map.MappingFor(art => art.Body).MapsTo("Text");
+        //}
     }
 }

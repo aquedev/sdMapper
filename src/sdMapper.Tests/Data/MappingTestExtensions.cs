@@ -11,5 +11,7 @@ namespace sdMapper.Tests.Data
         {
             Assert.Equal(mapping.FieldName, fieldName);
         }
+
+
     }
 }

@@ -1,5 +1,6 @@
 using System;
 using System.Linq.Expressions;
+using System.Linq;
 
 namespace sdMapper.Data
 {
@@ -7,7 +8,8 @@ namespace sdMapper.Data
     {
         public static Mapping MappingFor<TEntity, TResult>(this Map<TEntity> map, Expression<Func<TEntity,TResult>> expression) where TEntity : class, new()
         {
-            throw new NotImplementedException();
+            var mappedProperty = expression.GetProperty();
+            return map.Mappings.FirstOrDefault(mapping => mapping.MappedProperty == mappedProperty);
         }
 
         

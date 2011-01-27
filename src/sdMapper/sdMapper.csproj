@@ -47,6 +47,8 @@
     <Compile Include="Data\IMap.cs" />
     <Compile Include="Data\Map.cs" />
     <Compile Include="Data\MapExtensions.cs" />
+    <Compile Include="Data\MappingBuilder.cs" />
+    <Compile Include="ExpressionExtensions.cs" />
     <Compile Include="ThinItem.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

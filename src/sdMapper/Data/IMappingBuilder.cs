@@ -1,9 +1,7 @@
 using System;
+using System.Linq.Expressions;
 
 namespace sdMapper.Data
 {
-    public interface IMappingBuilder
-    {
-        Mapping Mapping { get; set; }
-    }
+    
 }
