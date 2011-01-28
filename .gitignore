@@ -8,3 +8,4 @@ packages/*
 *.suo
 *.cache
 ~$*
+Sitecore.Kernel.dll
