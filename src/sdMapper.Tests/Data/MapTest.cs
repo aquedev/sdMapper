@@ -16,7 +16,7 @@ namespace sdMapper.Tests.Data
             public NewsArticleMockMap()
             {
                 MapProperty(article => article.Title);
-                //MapProperty(article => article.Body).To("Text");
+                MapProperty(article => article.Body).To("Text");
             }
 
             public override string TemplatePath
@@ -38,11 +38,11 @@ namespace sdMapper.Tests.Data
             map.MappingFor(art => art.Title).MapsTo("Title");
         }
 
-        //[Fact]
-        //public void MapProperty_WithPropertyAndSpecifiedFieldName_MapsThePropertyToThatField()
-        //{
-        //    var map = new NewsArticleMockMap();
-        //    map.MappingFor(art => art.Body).MapsTo("Text");
-        //}
+        [Fact]
+        public void MapProperty_WithPropertyAndSpecifiedFieldName_MapsThePropertyToThatField()
+        {
+            var map = new NewsArticleMockMap();
+            map.MappingFor(art => art.Body).MapsTo("Text");
+        }
     }
 }

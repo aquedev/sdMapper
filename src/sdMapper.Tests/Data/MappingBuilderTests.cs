@@ -45,6 +45,18 @@ namespace sdMapper.Tests.Data
             _map.MappingFor(art => art.Body).MapsTo("Body");
 		}
 
+        [Fact]
+        public void SetFieldName_WithNewFieldName_SetsTheMappingFieldName()
+        {
+            string newFieldName = "NewFieldName";
+            var builder = CreateBuilder();
+            builder.To(newFieldName);
+            builder.Build();
+
+            Assert.NotNull(_map.MappingFor(art => art.Body));
+            _map.MappingFor(art => art.Body).MapsTo(newFieldName);
+        }
+
         private MappingBuilder<NewsArticleMock> CreateBuilder()
         {
             return new MappingBuilder<NewsArticleMock>(_map);

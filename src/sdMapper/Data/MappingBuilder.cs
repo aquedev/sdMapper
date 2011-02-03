@@ -20,6 +20,12 @@ namespace sdMapper.Data
             return this;
         }
 
+        public MappingBuilder<TEntity> To(string fieldName)
+        {
+            Mapping.FieldName = fieldName;
+            return this;
+        }
+
         public MappingBuilder<TEntity> Build()
         {
             if (Mapping == null)

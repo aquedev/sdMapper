@@ -17,11 +17,11 @@ namespace sdMapper.Data
             set { _mappings = value; }
         }
 
-        protected void MapProperty<TResult>(Expression<Func<TEntity,TResult>> expression)
+        protected MappingBuilder<TEntity> MapProperty<TResult>(Expression<Func<TEntity,TResult>> expression)
         {
             var builder = CreateBuilder();
             builder.MapProperty(expression);
-            builder.Build();
+            return builder.Build();
         }
 
         private MappingBuilder<TEntity> CreateBuilder()
