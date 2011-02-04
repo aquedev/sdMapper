@@ -53,6 +53,7 @@
     <Compile Include="Data\NewsArticleMock1.cs" />
     <Compile Include="MapperTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="SitecoreSessionTests.cs" />
     <Compile Include="ThinItemTests.cs" />
   </ItemGroup>
   <ItemGroup>

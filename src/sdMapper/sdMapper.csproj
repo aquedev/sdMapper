@@ -44,6 +44,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Data\IMappingBuilder.cs" />
+    <Compile Include="Data\ItemLoader.cs" />
     <Compile Include="Data\Mapping.cs" />
     <Compile Include="Data\Extensions\ExpressionExtensions.cs" />
     <Compile Include="Data\IMap.cs" />

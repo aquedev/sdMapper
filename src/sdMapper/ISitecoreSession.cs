@@ -5,7 +5,7 @@ using System.Text;
 
 namespace sdMapper
 {
-    public interface ISitecoreSession
+    public interface ISitecoreSession : IDisposable
     {
         T Load<T>(Guid id);
         T Load<T>(string path);
