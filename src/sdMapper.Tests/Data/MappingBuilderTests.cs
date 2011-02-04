@@ -50,6 +50,7 @@ namespace sdMapper.Tests.Data
         {
             string newFieldName = "NewFieldName";
             var builder = CreateBuilder();
+            builder.MapProperty(_propertyExpression);
             builder.To(newFieldName);
             builder.Build();
 
