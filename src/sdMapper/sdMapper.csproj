@@ -32,11 +32,13 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Sitecore.Kernel">
+      <HintPath>..\..\lib\Sitecore\Sitecore.Kernel.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
-    <Reference Include="Microsoft.CSharp" />
     <Reference Include="System.Data" />
     <Reference Include="System.Xml" />
   </ItemGroup>
@@ -49,6 +51,9 @@
     <Compile Include="Data\MapExtensions.cs" />
     <Compile Include="Data\MappingBuilder.cs" />
     <Compile Include="ExpressionExtensions.cs" />
+    <Compile Include="ISitecoreSession.cs" />
+    <Compile Include="Mapper.cs" />
+    <Compile Include="SitecoreSession.cs" />
     <Compile Include="ThinItem.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
