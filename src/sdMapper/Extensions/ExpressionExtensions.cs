@@ -1,8 +1,9 @@
 using System;
 using System.Linq.Expressions;
 using System.Reflection;
+using System.Diagnostics;
 
-namespace sdMapper.Data.Extensions
+namespace sdMapper.Extensions
 {
     public static class ExpressionExtensions
     {

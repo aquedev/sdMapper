@@ -28,6 +28,5 @@ namespace sdMapper.Data
         {
             return new MappingBuilder<TEntity>(this);
         }
-
     }
 }

@@ -1,11 +1,6 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 using Xunit;
 using sdMapper.Data;
-using sdMapper.Data.Extensions;
-using System.Linq.Expressions;
 
 namespace sdMapper.Tests.Data
 {
@@ -27,8 +22,6 @@ namespace sdMapper.Tests.Data
                 }
             }
         }
-
-        
 
         [Fact]
         public void MapProperty_WithoutSpecifiedFieldName_MapsThePropertyToAFieldWithSameName()
