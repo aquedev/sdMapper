@@ -19,6 +19,11 @@ namespace sdMapper.Data
             get { return _fields; }
         }
 
+        public void AddField(string name, string value)
+        {
+            _fields.Add(new ThinField { Name = name, Value = value });
+        }
+
         public ThinItem()
         {
             _fields = new List<ThinField>();
@@ -37,5 +42,7 @@ namespace sdMapper.Data
         public string Name { get; set; }
         public string Type { get; set; }
         public string Value { get; set; }
+
+
     }
 }

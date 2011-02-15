@@ -14,9 +14,9 @@ namespace sdMapper.Data
             _converters = converters;
         }
 
-        public T Convert<T>(ThinItem item)
+        public object Convert(ThinItem item, IMap map)
         {
-            var idProperty = ReflectionUtil.GetInstanceProperty(typeof(T), "Id");
+            var idProperty = ReflectionUtil.GetInstanceProperty(map.EntityType, "Id");
             if (idProperty == null)
                 throw new MapperException("Cannot map to entity that does'n have an Guid Id property");
 

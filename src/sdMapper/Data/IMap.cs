@@ -5,7 +5,8 @@ namespace sdMapper.Data
 {
     public interface IMap
     {
-        IList<Mapping> Mappings { get; set; }
+        Type EntityType { get; }
+        IList<Mapping> Mappings { get; }
         string TemplatePath { get;  }
     }
 }

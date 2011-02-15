@@ -15,7 +15,7 @@ namespace sdMapper.Tests
         public void LoadEntity_ThowsIfEntityDoesntContainPropretyIdOfTypeGuid()
         {
             var loader = GetLoader();
-            Assert.Throws<InvalidOperationException>(() => loader.Convert<MockEntityWithoutId>(GetSourceItem()));
+            Assert.Throws<InvalidOperationException>(() => loader.Convert(GetSourceItem(), new MockEntityMap()));
         }
 
         private static ItemConverter GetLoader()
