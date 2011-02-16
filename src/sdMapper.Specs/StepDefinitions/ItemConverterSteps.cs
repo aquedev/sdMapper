@@ -5,6 +5,7 @@ using TechTalk.SpecFlow;
 using sdMapper.Specs.Support;
 using sdMapper.Data;
 using Xunit;
+using sdMapper.Tests;
 
 namespace sdMapper.Specs.StepDefinitions
 {
@@ -15,6 +16,12 @@ namespace sdMapper.Specs.StepDefinitions
         readonly List<ThinItem> _items = new List<ThinItem>();
         private IMap _currentMap = new BookMap();
         private Book _convertedItem;
+
+        [BeforeScenario]
+        public void SetupMapper()
+        {
+            new MapperSetup().Setup();
+        }
 
         [Given(@"the following items")]
         public void GivenTheFollowingItems(Table table)
@@ -52,7 +59,7 @@ namespace sdMapper.Specs.StepDefinitions
         [When(@"I Convert the item")]
         public void WhenIConvertTheItem()
         {
-            ItemConverter converter = new ItemConverter(new List<IFieldConverter>());
+            ItemConverter converter = Mapper.Resolver.Resolve<ItemConverter>();
             _convertedItem = converter.Convert(_currentItem, _currentMap) as Book;
         }
 

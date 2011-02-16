@@ -64,6 +64,10 @@
     </None>
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\sdMapper.StructureMapAdapter\sdMapper.StructureMapAdapter.csproj">
+      <Project>{176B9AE4-12E7-4A32-984D-854F1D18C0DC}</Project>
+      <Name>sdMapper.StructureMapAdapter</Name>
+    </ProjectReference>
     <ProjectReference Include="..\sdMapper.Tests\sdMapper.Tests.csproj">
       <Project>{F80C6FF5-F813-4DAB-BFB8-259F1F3F69F1}</Project>
       <Name>sdMapper.Tests</Name>
