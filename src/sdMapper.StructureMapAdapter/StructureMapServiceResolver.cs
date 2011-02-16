@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using StructureMap;
 
-namespace sdMapper.StructureMap
+namespace sdMapper.StructureMapAdapter
 {
-    class StructureMapServiceResolver : IServiceResolver
+    public class StructureMapServiceResolver : IServiceResolver
     {
         #region IServiceResolver Members
 

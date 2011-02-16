@@ -14,7 +14,6 @@ namespace sdMapper.Data
 
         public IList<Mapping> _mappings = new List<Mapping>();
 
-
         public abstract string TemplatePath { get; }
 
         public IList<Mapping> Mappings

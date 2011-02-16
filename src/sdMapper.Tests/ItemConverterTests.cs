@@ -6,12 +6,17 @@ using Moq;
 
 namespace sdMapper.Tests
 {
-    public class ItemConverterTests
+    public class ItemConverterTests : IUseFixture<MapperSetup>
     {
         private const string BodyFieldValue = "SampleText";
         private const string VoteCountValue = "10";
         private static readonly Guid SourceItemId = new Guid();
         private Mock<IMap> _mapMock;
+
+        public void SetFixture(MapperSetup data)
+        {
+            data.Setup();
+        }
 
         /// <summary>
         /// Initializes a new instance of the ItemConverterTests class.
@@ -36,6 +41,7 @@ namespace sdMapper.Tests
         {
             Type entityType = typeof(MockEntity);
             _mapMock.SetupGet(map => map.EntityType).Returns(entityType);
+            _mapMock.SetupGet(map => map.Mappings).Returns(new List<Mapping>());
 
             var entity = GetConverter().Convert(GetSourceItem(), _mapMock.Object);
 
@@ -44,7 +50,7 @@ namespace sdMapper.Tests
 
         private static ItemConverter GetConverter()
         {
-            return new ItemConverter(new List<IFieldConverter>());
+            return Mapper.Resolver.Resolve<ItemConverter>();
         }
 
         private static ThinItem GetSourceItem()
@@ -91,5 +97,6 @@ namespace sdMapper.Tests
 
         }
 
+        
     }
 }

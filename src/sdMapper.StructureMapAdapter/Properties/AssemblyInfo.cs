@@ -5,11 +5,11 @@ using System.Runtime.InteropServices;
 // General Information about an assembly is controlled through the following 
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
-[assembly: AssemblyTitle("sdMapper.StructureMap")]
+[assembly: AssemblyTitle("sdMapper.StructureMapAdapter")]
 [assembly: AssemblyDescription("")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("")]
-[assembly: AssemblyProduct("sdMapper.StructureMap")]
+[assembly: AssemblyProduct("sdMapper.StructureMapAdapter")]
 [assembly: AssemblyCopyright("Copyright ©  2011")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
@@ -20,7 +20,7 @@ using System.Runtime.InteropServices;
 [assembly: ComVisible(false)]
 
 // The following GUID is for the ID of the typelib if this project is exposed to COM
-[assembly: Guid("4f2bbd27-9f71-49c4-8d19-f024a059f8f7")]
+[assembly: Guid("7fda4ffc-5213-4aa9-b50f-fd5dca0c535b")]
 
 // Version information for an assembly consists of the following four values:
 //
