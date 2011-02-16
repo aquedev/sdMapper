@@ -43,10 +43,13 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Data\FieldConverters\ConvertibleFieldConverter.cs">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Include="Data\IItemProvider.cs" />
     <Compile Include="Data\IMappingBuilder.cs" />
     <Compile Include="Data\ItemConverter.cs" />
-    <Compile Include="Data\IValueConverter.cs" />
+    <Compile Include="Data\IFieldConverter.cs" />
     <Compile Include="Data\MapperException.cs" />
     <Compile Include="Data\Mapping.cs" />
     <Compile Include="Extensions\ArgumentExtensions.cs" />
@@ -56,6 +59,7 @@
     <Compile Include="Data\MapExtensions.cs" />
     <Compile Include="Data\MappingBuilder.cs" />
     <Compile Include="ExpressionExtensions.cs" />
+    <Compile Include="IServiceResolver.cs" />
     <Compile Include="ISitecoreSession.cs" />
     <Compile Include="Mapper.cs" />
     <Compile Include="SitecoreSession.cs" />

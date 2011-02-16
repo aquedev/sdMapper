@@ -1,11 +1,11 @@
 using System;
 using System.Collections.Generic;
 using sdMapper.Utilities;
-using System.Runtime.Serialization;
+using System.Reflection;
+using System.Linq;
 
 namespace sdMapper.Data
 {
-    
     public class ItemConverter
     {
         private readonly IList<IFieldConverter> _converters;
@@ -20,8 +20,28 @@ namespace sdMapper.Data
             if (idProperty == null)
                 throw new MapperException("Cannot map to entity that does'n have an Guid Id property");
 
+            object entity = Activator.CreateInstance(map.EntityType);
 
-            throw new NotImplementedException();
+            foreach (Mapping mapping in map.Mappings)
+            {
+                object convertedValue = GetConvertedValue(mapping.MappedProperty, item[mapping.FieldName]);
+                mapping.MappedProperty.SetValue(entity, convertedValue, null);
+            }
+            return entity;
         }
+
+        private object GetConvertedValue(PropertyInfo mappedProperty, ThinField fieldToBeConverted)
+        {
+            var mappedPropertyType = mappedProperty.PropertyType;
+            var converter = GetConverter(mappedPropertyType);
+
+            return converter.ConvertFieldToProperty(fieldToBeConverted, mappedPropertyType);
+        }
+
+        private IFieldConverter GetConverter(Type mappedPropertyType)
+        {
+            return _converters.First(conv => conv.CanConvertToType(mappedPropertyType));
+        }
+
     }
 }

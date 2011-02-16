@@ -4,7 +4,7 @@ namespace sdMapper.Data
 {
     public interface IFieldConverter
     {
-        bool CanConvertProperty(Type type);
+        bool CanConvertToType(Type type);
         object ConvertFieldToProperty(ThinField field, Type propertyType);
         string ConvertPropertyToField(object value);
     }

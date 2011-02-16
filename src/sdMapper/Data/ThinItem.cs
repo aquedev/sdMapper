@@ -1,10 +1,16 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 
 namespace sdMapper.Data
 {
     public class ThinItem
     {
+        public ThinField this[string fieldName]
+        {
+            get { return _fields.Single(fld => fld.Name.Equals(fieldName)); }
+        }
+
         public string Name { get; set; }
         public Guid Id { get; set; }
 
