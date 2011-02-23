@@ -66,16 +66,43 @@ namespace sdMapper.Specs
                         "Name",
                         "Title",
                         "Body",
-                        "NumberOfViews",
-                        "Image"});
+                        "NumberOfViews"});
             table1.AddRow(new string[] {
                         "Item1",
                         "Blue whale",
                         "A book about the whales in the pacific",
-                        "500",
-                        ""});
+                        "500"});
+            table1.AddRow(new string[] {
+                        "Item2",
+                        "The dark forest",
+                        "A book about the woods",
+                        "100"});
 #line 7
  testRunner.Given("the following items", ((string)(null)), table1);
+#line hidden
+            TechTalk.SpecFlow.Table table2 = new TechTalk.SpecFlow.Table(new string[] {
+                        "Property",
+                        "Field"});
+            table2.AddRow(new string[] {
+                        "Title",
+                        "Title"});
+            table2.AddRow(new string[] {
+                        "Body",
+                        "Body"});
+            table2.AddRow(new string[] {
+                        "Views",
+                        "NumberOfViews"});
+#line 11
+ testRunner.Given("the following map", ((string)(null)), table2);
+#line hidden
+            TechTalk.SpecFlow.Table table3 = new TechTalk.SpecFlow.Table(new string[] {
+                        "Prorerty",
+                        "Field"});
+            table3.AddRow(new string[] {
+                        "Name",
+                        "Name"});
+#line 16
+ testRunner.Given("the following conventions", ((string)(null)), table3);
 #line hidden
         }
         
@@ -85,16 +112,18 @@ namespace sdMapper.Specs
         public virtual void AutomaticallySettingNamePropertyIfItExists()
         {
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Automatically setting name property if it exists", ((string[])(null)));
-#line 11
+#line 20
 this.ScenarioSetup(scenarioInfo);
-#line 12
+#line 21
  testRunner.Given("I have item with name Item1");
-#line 13
- testRunner.And("I have BookMap without a Mapping for Name");
-#line 14
+#line 22
  testRunner.When("I Convert the item");
-#line 15
- testRunner.Then("the resulting book entity\'s Name property is set to Item1");
+#line 23
+ testRunner.Then("the resulting book entity\'s Title property is set to \"Blue whale\"");
+#line 24
+ testRunner.And("Body set to \"A book about the whales in the pacific\"");
+#line 25
+ testRunner.And("View set to \"500\"");
 #line hidden
             testRunner.CollectScenarioErrors();
         }
@@ -105,15 +134,13 @@ this.ScenarioSetup(scenarioInfo);
         public virtual void SettingStringPropreties()
         {
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Setting string propreties", ((string[])(null)));
-#line 17
+#line 27
 this.ScenarioSetup(scenarioInfo);
-#line 18
+#line 28
     testRunner.Given("I have item with name Item1");
-#line 19
- testRunner.And("I have BookMap with Mapping for Title");
-#line 20
+#line 29
  testRunner.When("I Convert the item");
-#line 21
+#line 30
  testRunner.Then("the resulting book entity\'s Title proprety is \"Blue whale\"");
 #line hidden
             testRunner.CollectScenarioErrors();
