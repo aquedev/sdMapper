@@ -59,9 +59,11 @@
     <Compile Include="Data\MapExtensions.cs" />
     <Compile Include="Data\MappingBuilder.cs" />
     <Compile Include="ExpressionExtensions.cs" />
+    <Compile Include="IMapFinder.cs" />
     <Compile Include="IServiceResolver.cs" />
     <Compile Include="ISitecoreDataWrapper.cs" />
     <Compile Include="ISitecoreSession.cs" />
+    <Compile Include="MapFinder.cs" />
     <Compile Include="Mapper.cs" />
     <Compile Include="SitecoreSession.cs" />
     <Compile Include="Data\ThinItem.cs" />

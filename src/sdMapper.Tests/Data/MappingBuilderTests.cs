@@ -7,23 +7,30 @@ namespace sdMapper.Tests.Data
 {
     public class MappingBuilderTests
     {
-        public class NewsArticleMockMap : Map<NewsArticleMock>
+        #region Test Classes
+        private class MockEntity
+        {
+            public string Body { get; set; }
+        }
+
+        private class MockEntityMap : Map<MockEntity>
         {
             public override string TemplatePath
             {
                 get { throw new NotImplementedException(); }
             }
         }
+        #endregion
 
-        Map<NewsArticleMock> _map;
-        Expression<Func<NewsArticleMock, string>> _propertyExpression;
+        Map<MockEntity> _map;
+        Expression<Func<MockEntity, string>> _propertyExpression;
 
         /// <summary>
         /// Initializes a new instance of the MappingBuilderTests class.
         /// </summary>
         public MappingBuilderTests()
         {
-            _map = new NewsArticleMockMap();
+            _map = new MockEntityMap();
             _propertyExpression = article => article.Body;
         }
 
@@ -58,9 +65,9 @@ namespace sdMapper.Tests.Data
             _map.MappingFor(art => art.Body).MapsTo(newFieldName);
         }
 
-        private MappingBuilder<NewsArticleMock> CreateBuilder()
+        private MappingBuilder<MockEntity> CreateBuilder()
         {
-            return new MappingBuilder<NewsArticleMock>(_map);
+            return new MappingBuilder<MockEntity>(_map);
         }
     }
 }

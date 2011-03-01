@@ -56,12 +56,14 @@
     <Compile Include="Data\MappingBuilderTests.cs" />
     <Compile Include="Data\MappingTestExtensions.cs" />
     <Compile Include="Data\MapTest.cs" />
-    <Compile Include="Data\NewsArticleMock.cs" />
+    <Compile Include="MapFinderTests.cs" />
+    <Compile Include="Mocks\NewsArticleMock.cs" />
     <Compile Include="Data\FieldConverters\ConvertibleValueConverterTests.cs" />
     <Compile Include="Extensions\ArgumentExtensions.cs" />
     <Compile Include="ItemConverterTests.cs" />
     <Compile Include="MapperSetup.cs" />
     <Compile Include="MapperTests.cs" />
+    <Compile Include="Mocks\ObjectWithoutMap.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ReflectionUtilTests.cs" />
     <Compile Include="SitecoreSessionTests.cs" />

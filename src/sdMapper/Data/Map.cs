@@ -5,7 +5,7 @@ using System.Linq.Expressions;
 namespace sdMapper.Data
 {
     public abstract class Map<TEntity> : IMap
-        where TEntity : class, new()
+        where TEntity : class
     {
         public Type EntityType
         {

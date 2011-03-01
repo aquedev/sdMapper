@@ -1,9 +1,8 @@
 using System;
 using Xunit;
 using sdMapper.Data;
-using System.Collections.Generic;
-using sdMapper.Tests.Data;
 using Moq;
+using sdMapper.Tests.Mocks;
 
 namespace sdMapper.Tests
 {
@@ -11,6 +10,7 @@ namespace sdMapper.Tests
     {
         Mapper _mapper = new Mapper();
         Mock<ISitecoreDataService> _dataServiceMock;
+        Mock<IMapFinder> _finderMock;
         SitecoreSession _session;
 
         /// <summary>
@@ -19,7 +19,8 @@ namespace sdMapper.Tests
         public SitecoreSessionTests()
         {
             _dataServiceMock = new Mock<ISitecoreDataService>();
-            _session = new SitecoreSession(_dataServiceMock.Object);
+            _finderMock = new Mock<IMapFinder>();
+            _session = new SitecoreSession(_dataServiceMock.Object, _finderMock.Object);
         }
 
         [Fact]
@@ -40,6 +41,15 @@ namespace sdMapper.Tests
             Assert.Null(_session.Load<NewsArticleMock>(notExistantId));
         }
 
+        [Fact]
+        public void Load_WithObjectThatDoesntHaveAMap_ThorwsInvalidOperationException()
+        {
+            Guid id = Guid.NewGuid();
+            _dataServiceMock.Setup(service => service.GetItem(id)).Returns(new ThinItem());
+            _finderMock.Setup(finder => finder.FindMap<ObjectWithoutMap>()).Returns((IMap)null);
+
+            Assert.Throws<InvalidOperationException>(() => _session.Load<ObjectWithoutMap>(id));
+        }
 
         
         //want to load an object from session

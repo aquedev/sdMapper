@@ -3,7 +3,7 @@ using System.Linq.Expressions;
 
 namespace sdMapper.Data
 {
-    public class MappingBuilder<TEntity> where TEntity : class, new()
+    public class MappingBuilder<TEntity> where TEntity : class
     {
         private readonly Map<TEntity> _map;
         public Mapping Mapping { get; set; }

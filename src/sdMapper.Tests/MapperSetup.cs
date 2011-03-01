@@ -19,9 +19,11 @@ namespace sdMapper.Tests
             ObjectFactory.Initialize(init => {
                 init.Scan(scanner => {
                     scanner.AssemblyContainingType<Mapper>();
+                    scanner.AssemblyContainingType<MapperSetup>();
 
                     scanner.WithDefaultConventions();
                     scanner.AddAllTypesOf<IFieldConverter>();
+                    scanner.ConnectImplementationsToTypesClosing(typeof(Map<>));
                 });
 
             

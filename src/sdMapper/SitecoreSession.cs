@@ -7,9 +7,11 @@ namespace sdMapper
     public class SitecoreSession : ISitecoreSession
     {
         private readonly ISitecoreDataService _dataService;
-
-        public SitecoreSession(ISitecoreDataService dataService)
+        private readonly IMapFinder _mapFinder;
+        
+        public SitecoreSession(ISitecoreDataService dataService, IMapFinder mapFinder)
         {
+            _mapFinder = mapFinder;
             _dataService = dataService;
         }
 
@@ -20,7 +22,13 @@ namespace sdMapper
             if (item == null)
                 return (T)null;
             else
+            {
+                IMap map = _mapFinder.FindMap<T>();
+                if (map == null)
+                    throw new InvalidOperationException(String.Format("Cannot load entity because there is no map associated with type ({0})", typeof(T)));
+
                 throw new NotImplementedException();
+            }
         }
 
         public T Load<T>(string path)
