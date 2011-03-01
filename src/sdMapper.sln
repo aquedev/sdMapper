@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "sdMapper.Tests", "sdMapper.
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "sdMapper.StructureMapAdapter", "sdMapper.StructureMapAdapter\sdMapper.StructureMapAdapter.csproj", "{176B9AE4-12E7-4A32-984D-854F1D18C0DC}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "sdMapper.SitecoreImpl", "sdMapper.SitecoreImpl\sdMapper.SitecoreImpl.csproj", "{2B030825-B345-48AD-94B7-B0EAA9E8557A}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -25,6 +27,10 @@ Global
 		{176B9AE4-12E7-4A32-984D-854F1D18C0DC}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{176B9AE4-12E7-4A32-984D-854F1D18C0DC}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{176B9AE4-12E7-4A32-984D-854F1D18C0DC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2B030825-B345-48AD-94B7-B0EAA9E8557A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2B030825-B345-48AD-94B7-B0EAA9E8557A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2B030825-B345-48AD-94B7-B0EAA9E8557A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2B030825-B345-48AD-94B7-B0EAA9E8557A}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

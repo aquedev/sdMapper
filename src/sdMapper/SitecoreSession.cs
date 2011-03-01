@@ -1,22 +1,26 @@
 using System;
 using sdMapper.Utilities;
+using sdMapper.Data;
 
 namespace sdMapper
 {
     public class SitecoreSession : ISitecoreSession
     {
-        public SitecoreSession()
+        private readonly ISitecoreDataService _dataService;
+
+        public SitecoreSession(ISitecoreDataService dataService)
         {
-
+            _dataService = dataService;
         }
-
-        #region ISitecoreSession Members
 
         public T Load<T>(Guid id) where T : class
         {
             Guard.NotEmptyGuid(id, "id");
-
-            return (T)null;
+            ThinItem item = _dataService.GetItem(id);
+            if (item == null)
+                return (T)null;
+            else
+                throw new NotImplementedException();
         }
 
         public T Load<T>(string path)
@@ -49,7 +53,6 @@ namespace sdMapper
             throw new NotImplementedException();
         }
 
-        #endregion
 
         #region IDisposable Members
 

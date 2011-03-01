@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using Sitecore.Data.Items;
 
 namespace sdMapper.Data
 {
@@ -33,6 +34,11 @@ namespace sdMapper.Data
         public ThinItem()
         {
             _fields = new List<ThinField>();
+        }
+
+        public static ThinItem FromSitecoreItem(Item sitecoreItem)
+        {
+            throw new NotImplementedException();
         }
     }
 

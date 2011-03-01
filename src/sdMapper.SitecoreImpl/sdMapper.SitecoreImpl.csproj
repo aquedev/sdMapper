@@ -5,11 +5,11 @@
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProductVersion>8.0.30703</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
-    <ProjectGuid>{3979E659-7F15-4671-AFC2-70D39FD68364}</ProjectGuid>
+    <ProjectGuid>{2B030825-B345-48AD-94B7-B0EAA9E8557A}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>sdMapper</RootNamespace>
-    <AssemblyName>sdMapper</AssemblyName>
+    <RootNamespace>sdMapper.SitecoreImpl</RootNamespace>
+    <AssemblyName>sdMapper.SitecoreImpl</AssemblyName>
     <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <TargetFrameworkProfile />
@@ -36,6 +36,7 @@
       <HintPath>..\..\lib\Sitecore\Sitecore.Kernel.dll</HintPath>
     </Reference>
     <Reference Include="System" />
+    <Reference Include="System.configuration" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
@@ -43,33 +44,16 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Data\FieldConverters\ConvertibleFieldConverter.cs">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="Data\IItemProvider.cs" />
-    <Compile Include="Data\IMappingBuilder.cs" />
-    <Compile Include="Data\ItemConverter.cs" />
-    <Compile Include="Data\IFieldConverter.cs" />
-    <Compile Include="Data\MapperException.cs" />
-    <Compile Include="Data\Mapping.cs" />
-    <Compile Include="Extensions\ArgumentExtensions.cs" />
-    <Compile Include="Extensions\ExpressionExtensions.cs" />
-    <Compile Include="Data\IMap.cs" />
-    <Compile Include="Data\Map.cs" />
-    <Compile Include="Data\MapExtensions.cs" />
-    <Compile Include="Data\MappingBuilder.cs" />
-    <Compile Include="ExpressionExtensions.cs" />
-    <Compile Include="IServiceResolver.cs" />
-    <Compile Include="ISitecoreDataWrapper.cs" />
-    <Compile Include="ISitecoreSession.cs" />
-    <Compile Include="Mapper.cs" />
-    <Compile Include="SitecoreSession.cs" />
-    <Compile Include="Data\ThinItem.cs" />
+    <Compile Include="Databases.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Utilities\Guard.cs" />
-    <Compile Include="Utilities\ReflectionUtil.cs" />
+    <Compile Include="SitecoreDataWrapper.cs" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <ProjectReference Include="..\sdMapper\sdMapper.csproj">
+      <Project>{3979E659-7F15-4671-AFC2-70D39FD68364}</Project>
+      <Name>sdMapper</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

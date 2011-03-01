@@ -57,7 +57,6 @@
     <Compile Include="Data\MappingTestExtensions.cs" />
     <Compile Include="Data\MapTest.cs" />
     <Compile Include="Data\NewsArticleMock.cs" />
-    <Compile Include="Data\NewsArticleMock1.cs" />
     <Compile Include="Data\FieldConverters\ConvertibleValueConverterTests.cs" />
     <Compile Include="Extensions\ArgumentExtensions.cs" />
     <Compile Include="ItemConverterTests.cs" />

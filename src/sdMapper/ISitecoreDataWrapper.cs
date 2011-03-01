@@ -3,7 +3,7 @@ using sdMapper.Data;
 
 namespace sdMapper
 {
-    public interface ISitecoreDataWrapper
+    public interface ISitecoreDataService
     {
         ThinItem GetItem(Guid id);
         ThinItem GetItem(string path);

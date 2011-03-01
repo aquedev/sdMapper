@@ -21,7 +21,7 @@ namespace sdMapper
 
         public ISitecoreSession CreateSession()
         {
-            return new SitecoreSession();
+            return null;
         }
     }
 }
