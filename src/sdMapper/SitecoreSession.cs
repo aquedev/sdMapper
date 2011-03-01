@@ -1,4 +1,5 @@
 using System;
+using sdMapper.Utilities;
 
 namespace sdMapper
 {
@@ -11,9 +12,11 @@ namespace sdMapper
 
         #region ISitecoreSession Members
 
-        public T Load<T>(Guid id)
+        public T Load<T>(Guid id) where T : class
         {
-            throw new NotImplementedException();
+            Guard.NotEmptyGuid(id, "id");
+
+            return (T)null;
         }
 
         public T Load<T>(string path)

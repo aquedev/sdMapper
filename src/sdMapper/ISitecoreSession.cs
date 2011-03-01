@@ -7,7 +7,7 @@ namespace sdMapper
 {
     public interface ISitecoreSession : IDisposable
     {
-        T Load<T>(Guid id);
+        T Load<T>(Guid id) where T : class;
         T Load<T>(string path);
         IEnumerable<T> Load<T>(params Guid[] ids);
         IEnumerable<T> Load<T>(IEnumerable<Guid> ids);

@@ -20,7 +20,7 @@ namespace sdMapper.Data
             if (idProperty == null)
                 throw new MapperException("Cannot map to entity that does'n have an Guid Id property");
 
-            object entity = Activator.CreateInstance(map.EntityType);
+            object entity = CreateEntity(map);
 
             foreach (Mapping mapping in map.Mappings)
             {
@@ -30,6 +30,10 @@ namespace sdMapper.Data
             return entity;
         }
 
+        private static object CreateEntity(IMap map)
+        {
+            return Activator.CreateInstance(map.EntityType);
+        }
         private object GetConvertedValue(PropertyInfo mappedProperty, ThinField fieldToBeConverted)
         {
             var mappedPropertyType = mappedProperty.PropertyType;

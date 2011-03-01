@@ -9,5 +9,11 @@ namespace sdMapper.Utilities
             if (arg == null)
                 throw new ArgumentNullException(name);
         }
+
+        public static void NotEmptyGuid(Guid arg, string name)
+        {
+            if (Guid.Empty == arg)
+                throw new ArgumentException("Empty guid not allowed", name);
+        }
     }
 }
