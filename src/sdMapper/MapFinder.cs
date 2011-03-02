@@ -13,7 +13,7 @@ namespace sdMapper
         public IMap FindMap<T>()
                 where T : class
         {
-            return Resolver.Resolve<Map<T>>() as IMap;
+            return Resolver.TryResolve<Map<T>>() as IMap;
         }
     }
 }

@@ -28,7 +28,10 @@ namespace sdMapper.Tests
             Assert.IsType<NewsArticleMockMap>(map);
         }
 
-
-        
+        [Fact]
+        public void FindMap_WithTypeThatHasNoMap_ReturnsNull()
+        {
+            Assert.Null(_finder.FindMap<ObjectWithoutMap>());
+        }
     }
 }

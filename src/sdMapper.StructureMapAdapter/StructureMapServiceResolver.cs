@@ -8,7 +8,7 @@ namespace sdMapper.StructureMapAdapter
 {
     public class StructureMapServiceResolver : IServiceResolver
     {
-        #region IServiceResolver Members
+
 
         public T Resolve<T>()
         {
@@ -30,6 +30,10 @@ namespace sdMapper.StructureMapAdapter
             return ObjectFactory.GetNamedInstance(type, serviceName);
         }
 
-        #endregion
+        public T TryResolve<T>()
+        {
+            return ObjectFactory.TryGetInstance<T>();
+        }
+
     }
 }

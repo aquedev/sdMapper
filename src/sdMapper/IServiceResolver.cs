@@ -9,6 +9,7 @@ namespace sdMapper
     public interface IServiceResolver
     {
         T Resolve<T>();
+        T TryResolve<T>();
         T Resolve<T>(string serviceName);
         
         object Resolve(Type type);
