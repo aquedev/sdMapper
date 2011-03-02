@@ -33,6 +33,7 @@ namespace sdMapper.Data
 
         public ThinItem()
         {
+            Id = Guid.Empty;
             _fields = new List<ThinField>();
         }
 

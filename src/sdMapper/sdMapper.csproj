@@ -52,6 +52,7 @@
     <Compile Include="Data\IFieldConverter.cs" />
     <Compile Include="Data\MapperException.cs" />
     <Compile Include="Data\Mapping.cs" />
+    <Compile Include="Data\ThinItemBuilder.cs" />
     <Compile Include="Extensions\ArgumentExtensions.cs" />
     <Compile Include="Extensions\ExpressionExtensions.cs" />
     <Compile Include="Data\IMap.cs" />

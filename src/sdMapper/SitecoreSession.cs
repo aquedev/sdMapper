@@ -27,7 +27,9 @@ namespace sdMapper
                 if (map == null)
                     throw new InvalidOperationException(String.Format("Cannot load entity because there is no map associated with type ({0})", typeof(T)));
 
-                throw new NotImplementedException();
+                object entity = CreateEntity(typeof(T));
+
+                return (T)entity;
             }
         }
 
@@ -61,6 +63,11 @@ namespace sdMapper
             throw new NotImplementedException();
         }
 
+
+        private object CreateEntity(Type type)
+        {
+            return Activator.CreateInstance(type);
+        }
 
         #region IDisposable Members
 

@@ -6,8 +6,13 @@ using sdMapper.Tests.Mocks;
 
 namespace sdMapper.Tests
 {
-    public class SitecoreSessionTests
+    public class SitecoreSessionTests : IUseFixture<MapperSetup>
     {
+        public void SetFixture(MapperSetup data)
+        {
+            data.Setup();
+        }
+
         Mapper _mapper = new Mapper();
         Mock<ISitecoreDataService> _dataServiceMock;
         Mock<IMapFinder> _finderMock;
@@ -51,11 +56,29 @@ namespace sdMapper.Tests
             Assert.Throws<InvalidOperationException>(() => _session.Load<ObjectWithoutMap>(id));
         }
 
+        [Fact]
+        public void Load_WithObjectThatHasMap_ReturnsObjectOfMappedType()
+        {
+            Guid id = Guid.NewGuid();
+            IMap map = new NewsArticleMockMap();
+            _dataServiceMock.Setup(service => service.GetItem(id)).Returns(new ThinItem());
+            _finderMock.Setup(finder => finder.FindMap<NewsArticleMock>()).Returns(map);
+
+            NewsArticleMock entity = _session.Load<NewsArticleMock>(id);
+
+            Assert.NotNull(entity);
+            Assert.IsType(map.EntityType, entity);
+        }
+
         
         //want to load an object from session
         //want to convert an object from sitecoreItem
         //want to convert string field to string property
         //want to convert int field to int property
+
+
+
         
+
     }
 }
