@@ -8,9 +8,13 @@ namespace sdMapper
     {
         private readonly ISitecoreDataService _dataService;
         private readonly IMapFinder _mapFinder;
+        private readonly ItemConverter _converter;
         
-        public SitecoreSession(ISitecoreDataService dataService, IMapFinder mapFinder)
+        public SitecoreSession(ISitecoreDataService dataService,
+            IMapFinder mapFinder,
+            ItemConverter converter)
         {
+            _converter = converter;
             _mapFinder = mapFinder;
             _dataService = dataService;
         }
@@ -27,9 +31,7 @@ namespace sdMapper
                 if (map == null)
                     throw new InvalidOperationException(String.Format("Cannot load entity because there is no map associated with type ({0})", typeof(T)));
 
-                object entity = CreateEntity(typeof(T));
-
-                return (T)entity;
+                return (T)_converter.Convert(item, map);
             }
         }
 

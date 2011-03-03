@@ -3,6 +3,8 @@ using Xunit;
 using sdMapper.Data;
 using Moq;
 using sdMapper.Tests.Mocks;
+using sdMapper.Data.FieldConverters;
+using System.Collections.Generic;
 
 namespace sdMapper.Tests
 {
@@ -17,6 +19,7 @@ namespace sdMapper.Tests
         Mock<ISitecoreDataService> _dataServiceMock;
         Mock<IMapFinder> _finderMock;
         SitecoreSession _session;
+        ItemConverter _converter;
 
         /// <summary>
         /// Initializes a new instance of the SitecoreSessionTests class.
@@ -25,7 +28,8 @@ namespace sdMapper.Tests
         {
             _dataServiceMock = new Mock<ISitecoreDataService>();
             _finderMock = new Mock<IMapFinder>();
-            _session = new SitecoreSession(_dataServiceMock.Object, _finderMock.Object);
+            _converter = new ItemConverter(new List<IFieldConverter>() { (new ConvertibleFieldConverter())});
+            _session = new SitecoreSession(_dataServiceMock.Object, _finderMock.Object, _converter);
         }
 
         [Fact]
@@ -61,7 +65,7 @@ namespace sdMapper.Tests
         {
             Guid id = Guid.NewGuid();
             IMap map = new NewsArticleMockMap();
-            _dataServiceMock.Setup(service => service.GetItem(id)).Returns(new ThinItem());
+            _dataServiceMock.Setup(service => service.GetItem(id)).Returns(GetItem());
             _finderMock.Setup(finder => finder.FindMap<NewsArticleMock>()).Returns(map);
 
             NewsArticleMock entity = _session.Load<NewsArticleMock>(id);
@@ -70,15 +74,31 @@ namespace sdMapper.Tests
             Assert.IsType(map.EntityType, entity);
         }
 
-        
+        [Fact]
+        public void Load_WithValidIdAndType_ReturnsEntityWithCorrectTitle()
+        {
+            Guid id = Guid.NewGuid();
+            IMap map = new NewsArticleMockMap();
+            ThinItem item = GetItem();
+            _dataServiceMock.Setup(service => service.GetItem(id)).Returns(item);
+            _finderMock.Setup(finder => finder.FindMap<NewsArticleMock>()).Returns(map);
+
+            NewsArticleMock entity = _session.Load<NewsArticleMock>(id);
+
+            Assert.Equal(item["Title"].Value, entity.Title);
+        }
         //want to load an object from session
         //want to convert an object from sitecoreItem
         //want to convert string field to string property
         //want to convert int field to int property
 
-
-
-        
-
+        private static ThinItem GetItem()
+        {
+            return new ThinItemBuilder()
+                .AddField("Title", "title")
+                .AddField("Text", "body")
+                .AddField("SubTitle", "subTitle")
+                .Build();
+        }
     }
 }

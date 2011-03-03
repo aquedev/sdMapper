@@ -38,7 +38,7 @@ namespace sdMapper.Data
         {
             var mappedPropertyType = mappedProperty.PropertyType;
             var converter = GetConverter(mappedPropertyType);
-
+            
             return converter.ConvertFieldToProperty(fieldToBeConverted, mappedPropertyType);
         }
 

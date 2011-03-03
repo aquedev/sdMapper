@@ -10,8 +10,8 @@ namespace sdMapper.Data.FieldConverters
         public bool CanConvertToType(Type type)
         {
             // Can resolve any type which implements IConvertible, except DateTime, 
-            // Boolean or Enum, which are more explicitly handled by other value 
-            // resolvers
+            // Boolean or Enum, which are more explicitly handled by other field 
+            // converters
             if (ExcludedTypes.Contains(type) || type.IsEnum)
             {
                 return false;
