@@ -1,0 +1,42 @@
+﻿write tests that cover different scenarios of working with ISitecoreSession and creating entities
+
+Implement the rest of the FieldValue converters
+Can parse:
+bool
+Date
+Enum
+Guid
+Link
+Nullables
+Lists of values
+Other domain entities
+Lists of domain entities
+
+Add objects for core sitecore fields like:
+Image
+Link
+
+Add the serializedItems sitecore data source
+add unit of work to the session
+
+see how registering external maps will work
+see how registering external field value resolvers will work
+
+look into the Iservice resolver and how it resolves internal objects
+
+Write a custom sitecore serializer that converts an item to Json
+Allow Creating ThinItem from Json
+
+
+Look into the BRC project to see how we use the data access layer there
+Look into lloyds and add the examples from there.
+
+Create performance tests and check how fast the mapping and converting is
+
+Add events for the sdMapper
+onConverting
+onConverted
+onSaved
+
+Add hooks for caching.
+Allow the cache to work together with the sitecore caches

@@ -11,7 +11,7 @@ namespace sdMapper.Tests
             data.Setup();
         }
 
-        [Fact]//(Skip="Need to enable this when the Session class get's stable")]
+        [Fact]
         public void CreateSession_ReturnsNotNullSession()
         {
             Mapper mapper = new Mapper();
