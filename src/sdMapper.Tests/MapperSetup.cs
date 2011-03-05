@@ -17,10 +17,14 @@ namespace sdMapper.Tests
         private void InitiliseStructureMap()
         {
             ObjectFactory.Initialize(init => {
+
+                init.For<ISitecoreDataService>().Use<MockSitecoreDataService>();
+
                 init.Scan(scanner => {
                     scanner.AssemblyContainingType<Mapper>();
                     scanner.AssemblyContainingType<MapperSetup>();
 
+                    
                     scanner.WithDefaultConventions();
                     scanner.AddAllTypesOf<IFieldConverter>();
                     scanner.ConnectImplementationsToTypesClosing(typeof(Map<>));

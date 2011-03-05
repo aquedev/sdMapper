@@ -4,9 +4,14 @@ using Moq;
 
 namespace sdMapper.Tests
 {
-    public class MapperTests
+    public class MapperTests : IUseFixture<MapperSetup>
     {
-        [Fact(Skip="Need to enable this when the Session class get's stable")]
+        public void SetFixture(MapperSetup data)
+        {
+            data.Setup();
+        }
+
+        [Fact]//(Skip="Need to enable this when the Session class get's stable")]
         public void CreateSession_ReturnsNotNullSession()
         {
             Mapper mapper = new Mapper();
@@ -26,5 +31,9 @@ namespace sdMapper.Tests
         {
             Assert.Throws<ArgumentNullException>(() => Mapper.Initialise(null));
         }
+
+
+        
+
     }
 }

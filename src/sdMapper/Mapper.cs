@@ -21,7 +21,7 @@ namespace sdMapper
 
         public ISitecoreSession CreateSession()
         {
-            return null;
+            return Resolver.Resolve<ISitecoreSession>();
         }
     }
 }
