@@ -12,6 +12,12 @@ namespace sdMapper.Data
             return this;
         }
 
+        public ThinItemBuilder AddField(ThinField field)
+        {
+            _item.Fields.Add(field);
+            return this;
+        }
+
         public ThinItemBuilder WithName(string name)
         {
             _item.Name = name;

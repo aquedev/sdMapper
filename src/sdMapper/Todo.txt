@@ -1,5 +1,7 @@
 ﻿write tests that cover different scenarios of working with ISitecoreSession and creating entities
 
+create class to handle and validate template paths
+
 Implement the rest of the FieldValue converters
 Can parse:
 bool

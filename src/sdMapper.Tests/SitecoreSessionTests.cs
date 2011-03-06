@@ -15,7 +15,6 @@ namespace sdMapper.Tests
             data.Setup();
         }
 
-        Mapper _mapper = new Mapper();
         Mock<ISitecoreDataService> _dataServiceMock;
         Mock<IMapFinder> _finderMock;
         SitecoreSession _session;

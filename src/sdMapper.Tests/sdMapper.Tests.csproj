@@ -52,6 +52,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ConversionTests.cs" />
     <Compile Include="Data\ItemConverterTests.cs" />
     <Compile Include="Data\MappingBuilderTests.cs" />
     <Compile Include="Data\MappingTestExtensions.cs" />
@@ -59,6 +60,8 @@
     <Compile Include="Data\ThinItemBuilderTests.cs" />
     <Compile Include="MapFinderTests.cs" />
     <Compile Include="MockSitecoreDataService.cs" />
+    <Compile Include="Mocks\Enitities\BooleanEntity.cs" />
+    <Compile Include="Mocks\Enitities\MockEntityBase.cs" />
     <Compile Include="Mocks\NewsArticleMock.cs" />
     <Compile Include="Data\FieldConverters\ConvertibleValueConverterTests.cs" />
     <Compile Include="Extensions\ArgumentExtensions.cs" />

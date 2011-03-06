@@ -14,7 +14,7 @@ namespace sdMapper.Tests.Data
         }
 
         [Fact]
-        public void AddField_AddsFieldToBuiltThinItem()
+        public void AddField_WithFieldNameAndValue_AddsFieldToBuiltThinItem()
         {
             string fieldName = "name";
             string fieldValue = "value";
@@ -25,6 +25,18 @@ namespace sdMapper.Tests.Data
             var field = item[fieldName];
             Assert.Equal(1, item.Fields.Count);
             Assert.Equal(fieldValue, field.Value);
+        }
+
+        [Fact]
+        public void AddField_WithField_AddsFieldToBuiltThinItem()
+        {
+            var field = new ThinField() { Id = Guid.NewGuid(), Name = "FieldName", Value = "FieldValue", Type = "Text" };
+
+            _builder.AddField(field);
+
+            var item = _builder.Build();
+
+            Assert.Contains<ThinField>(field, item.Fields);
         }
 
         [Fact]

@@ -6,16 +6,26 @@ namespace sdMapper.Tests
 {
     public class MapperTests : IUseFixture<MapperSetup>
     {
+        private Mapper _mapper;
+
         public void SetFixture(MapperSetup data)
         {
-            data.Setup();
+            _mapper = data.Setup();
         }
 
         [Fact]
         public void CreateSession_ReturnsNotNullSession()
         {
-            Mapper mapper = new Mapper();
-            Assert.NotNull(mapper.CreateSession());
+            Assert.NotNull(_mapper.CreateSession());
+        }
+
+        [Fact]
+        public void Initialise_WithValidParameters_ReturnNotNullMapper()
+        {
+            Mock<IServiceResolver> mockResolver = new Mock<IServiceResolver>();
+            var mapper = Mapper.Initialise(mockResolver.Object);
+            Assert.NotNull(mapper);
+            Assert.IsType<Mapper>(mapper);
         }
 
         [Fact]
@@ -31,6 +41,8 @@ namespace sdMapper.Tests
         {
             Assert.Throws<ArgumentNullException>(() => Mapper.Initialise(null));
         }
+
+
 
 
         

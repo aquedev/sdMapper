@@ -7,14 +7,15 @@ namespace sdMapper
     {
         public static IServiceResolver Resolver;
 
-        public static void Initialise(IServiceResolver resolver)
+        public static Mapper Initialise(IServiceResolver resolver)
         {
             Guard.NotNull(resolver, "resolver");
 
             Resolver = resolver;
+            return new Mapper();
         }
 
-        public Mapper()
+        private Mapper()
         {
 
         }

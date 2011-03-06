@@ -8,10 +8,10 @@ namespace sdMapper.Tests
 {
     public class MapperSetup
     {
-        public void Setup()
+        public Mapper Setup()
         {
-            Mapper.Initialise(new StructureMapServiceResolver());
             InitiliseStructureMap();
+            return Mapper.Initialise(new StructureMapServiceResolver());
         }
 
         private void InitiliseStructureMap()
@@ -23,14 +23,11 @@ namespace sdMapper.Tests
                 init.Scan(scanner => {
                     scanner.AssemblyContainingType<Mapper>();
                     scanner.AssemblyContainingType<MapperSetup>();
-
                     
                     scanner.WithDefaultConventions();
                     scanner.AddAllTypesOf<IFieldConverter>();
                     scanner.ConnectImplementationsToTypesClosing(typeof(Map<>));
                 });
-
-            
             
             });
 
