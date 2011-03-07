@@ -53,6 +53,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="ConversionTests.cs" />
+    <Compile Include="Data\FieldConverters\BooleanFieldConverterTests.cs" />
     <Compile Include="Data\ItemConverterTests.cs" />
     <Compile Include="Data\MappingBuilderTests.cs" />
     <Compile Include="Data\MappingTestExtensions.cs" />
@@ -63,7 +64,7 @@
     <Compile Include="Mocks\Enitities\BooleanEntity.cs" />
     <Compile Include="Mocks\Enitities\MockEntityBase.cs" />
     <Compile Include="Mocks\NewsArticleMock.cs" />
-    <Compile Include="Data\FieldConverters\ConvertibleValueConverterTests.cs" />
+    <Compile Include="Data\FieldConverters\ConvertibleFieldConverterTests.cs" />
     <Compile Include="Extensions\ArgumentExtensions.cs" />
     <Compile Include="ItemConverterTests.cs" />
     <Compile Include="MapperSetup.cs" />
